@@ -32,7 +32,7 @@
     "negative": "underwear, bikini, swimsuit, lingerie, panties, child, chibi, toddler, big head small body, gremlin, childlike proportions, multiple tails, two tails, extra tail, more than one tail, fox head on tail, extra fox, second fox, duplicate animal, animal head on tail, deformed tail, blurry, deformed",
     "negative_note": "inert at guidance_scale 1; retained for the record"
   },
-  "execution_note": "Executor consumes this document's plan array; output to probes/latent_match_v4_1/<feature>/. Params identical to plan_v4 (z-image-turbo-q8_0, 1024x1024, 8 steps, ddim, cfg 1, seeds 1-4). Control group = dataset/baseline/ s01-s04 (v4 baseline, zero deltas). Vision-LLM judging of each axis vs the reference is recorded in judgement after rendering.",
+  "execution_note": "Executor consumes this document's plan array; output to probes/latent_match_v4_1-<feature>-sNN.webp . Params identical to plan_v4 (z-image-turbo-q8_0, 1024x1024, 8 steps, ddim, cfg 1, seeds 1-4). Control group = dataset/baseline-s01..04.webp (v4 baseline, zero deltas). Vision-LLM judging of each axis vs the reference is recorded in judgement after rendering.",
   "plan": [
     [
       "render_batch",
