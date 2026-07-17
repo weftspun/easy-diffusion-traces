@@ -35,6 +35,9 @@ Each dated session directory uses the same structure:
 
 ## Status
 
-The v4 sweep (45 batches, 180 images) is rendering as of 2026-07-17; feature
-dirs move into `2026-07-17-concept-art-dataset-foxgirl/dataset/` once the
-sweep completes per-feature QA.
+The v4 sweep (45 batches, 180 images) is paused as of 2026-07-17 at 20/45
+batches: baseline, hoodie_outfit, kimono_outfit, knight_armor complete
+(80/180 images, in `2026-07-17-concept-art-dataset-foxgirl/dataset/`);
+miko_outfit, silver_hair, a_pose, off_shoulder_outfit, short_dark_hair
+pending. Resuming = re-running the executor over `docs/plan_v4.jsonld`
+(completed batches are skipped by file-existence check).
