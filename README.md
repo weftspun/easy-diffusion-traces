@@ -23,4 +23,10 @@ with [taskweft](https://github.com/taskweft/taskweft)'s HTN planner
 | `2026-07-17-elixir-mcp-server/` | Building the Elixir MCP server itself (9-step session trace with civil-time spans) |
 | `2026-07-17-latent-space-foxgirl/` | Seed sweep from the default foxgirl prompt; first human vetoes (two tails, fox-head-as-tail) |
 | `2026-07-17-prompt-exploration-foxgirl/` | taskweft-branched prompt-space search; `plan.jsonld` records which branching mechanisms this taskweft build supports (TwMultiGoal backjumping) and which it rejects (pointer/eq guards, rebac+multigoal) |
-| `2026-07-17-concept-art-dataset-foxgirl/` | 6-feature x 20-image concept-art dataset, v1→v3: childlike-look veto → underwear-drift veto → composite-feature redesign into atomic one-delta-per-feature v3 |
+| `2026-07-17-concept-art-dataset-foxgirl/` | 6-feature x 20-image atomic-feature dataset (v1→v3 veto history), plus the v3.1 reference-image extension (`reference/`, `problem_v3_1.jsonld`, `plan_v3_1.jsonld`). Interrupted mid-sweep 2026-07-17; keepers so far under per-feature dirs |
+
+## Status
+
+The v3/v3.1 sweeps were paused mid-render on 2026-07-17 (user request);
+completed so far: `baseline` s01–s04 and the reference image. Remaining
+batches resume from the recorded plans.
