@@ -4,7 +4,7 @@
   "name": "atomic_feature_dataset_foxgirl_v3_1_reference_ext_2026-07-17",
   "generated_by": "mcp__taskweft__plan(domain.jsonld actions/methods + problem_v3_1.jsonld variables/todo_list)",
   "status": "ok",
-  "rationale": "Extension of the v3 atomic-feature dataset with three features decomposed from a user-provided reference image (reference/ComfyUI_00446.webp): short dark bob hair, off-shoulder tunic outfit, and relaxed A-pose. Each is one attribute delta vs the fixed v3 baseline; 20 examples per feature (5 batches x num_outputs=4, seeds 1-20). Eye color and plain background already matched the baseline; the reference hides the tail, so no tail delta.",
+  "rationale": "Extension of the v3 atomic-feature dataset with three features decomposed from a user-provided reference image (reference-ComfyUI_00446.webp): short dark bob hair, off-shoulder tunic outfit, and relaxed A-pose. Each is one attribute delta vs the fixed v3 baseline; 20 examples per feature (5 batches x num_outputs=4, seeds 1-20). Eye color and plain background already matched the baseline; the reference hides the tail, so no tail delta.",
   "prompts_v3_1": {
     "short_dark_hair": "<v3 base with 'short dark brown bob hair' replacing 'long orange hair'>, white crop top, brown skirt, leather boots",
     "off_shoulder_outfit": "<v3 base>, oversized off-shoulder dark blue tunic over white camisole, black cropped trousers, dark socks",

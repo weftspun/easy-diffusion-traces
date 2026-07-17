@@ -7,9 +7,9 @@
   "name": "latent_match_probe_v4_1_atomic_2026-07-17",
   "generated_by": "mcp__taskweft__plan(latent_match_probe_v4_1_atomic: 5 explored-goals over render_batch)",
   "status": "ok",
-  "rationale": "User request: 'use taskweft and vision llm to figure out how to match closer to the latent space of' reference/ComfyUI_00446.webp, with separable features. Vision-LLM analysis (Claude) decomposed the reference-vs-v4 latent gap into 5 unmodeled axes; each probe varies exactly ONE axis against the v4 baseline prompt so the axes stay separable and can graduate to atomic dataset features. Hair/outfit/pose deltas of the reference are already modeled (short_dark_hair, off_shoulder_outfit, a_pose).",
+  "rationale": "User request: 'use taskweft and vision llm to figure out how to match closer to the latent space of' reference-ComfyUI_00446.webp, with separable features. Vision-LLM analysis (Claude) decomposed the reference-vs-v4 latent gap into 5 unmodeled axes; each probe varies exactly ONE axis against the v4 baseline prompt so the axes stay separable and can graduate to atomic dataset features. Hair/outfit/pose deltas of the reference are already modeled (short_dark_hair, off_shoulder_outfit, a_pose).",
   "vision_analysis": {
-    "reference": "reference/ComfyUI_00446.webp",
+    "reference": "reference-ComfyUI_00446.webp",
     "unmodeled_axes": {
       "style_register": "reference is soft painterly 2D semi-realistic illustration with delicate gradient shading, blush, amber soft-gradient eyes; v4 renders 3D-avatar style \u2014 largest gap",
       "background": "warm beige/cream vs v4 neutral grey",
@@ -32,7 +32,7 @@
     "negative": "underwear, bikini, swimsuit, lingerie, panties, child, chibi, toddler, big head small body, gremlin, childlike proportions, multiple tails, two tails, extra tail, more than one tail, fox head on tail, extra fox, second fox, duplicate animal, animal head on tail, deformed tail, blurry, deformed",
     "negative_note": "inert at guidance_scale 1; retained for the record"
   },
-  "execution_note": "Executor consumes this document's plan array; output to probes/latent_match_v4_1-<feature>-sNN.webp . Params identical to plan_v4 (z-image-turbo-q8_0, 1024x1024, 8 steps, ddim, cfg 1, seeds 1-4). Control group = dataset/baseline-s01..04.webp (v4 baseline, zero deltas). Vision-LLM judging of each axis vs the reference is recorded in judgement after rendering.",
+  "execution_note": "Executor consumes this document's plan array; output to probes-latent_match_v4_1-<feature>-sNN.webp . Params identical to plan_v4 (z-image-turbo-q8_0, 1024x1024, 8 steps, ddim, cfg 1, seeds 1-4). Control group = dataset-baseline-s01..04.webp (v4 baseline, zero deltas). Vision-LLM judging of each axis vs the reference is recorded in judgement after rendering.",
   "plan": [
     [
       "render_batch",
@@ -62,7 +62,7 @@
     "step_duration_each": "PT60S"
   },
   "judgement": {
-    "judge": "vision LLM (Claude Fable 5), each axis vs reference/ComfyUI_00446.webp, seeds sampled per axis",
+    "judge": "vision LLM (Claude Fable 5), each axis vs reference-ComfyUI_00446.webp, seeds sampled per axis",
     "style_painterly": "SUCCESS \u2014 genuine painterly soft-gradient register matching the reference's shading language (soft amber gradient eyes, blush, muted palette); single tail 4/4, adult 4/4. Cost: full-body framing held in only 1/4 seeds (3 thigh-crops) \u2014 needs a framing reinforcement clause before dataset use.",
     "bg_beige": "SUCCESS \u2014 clean warm-beige background, perfectly isolated (no other attribute drifted).",
     "ears_dark": "FAIL \u2014 delta ignored; ears render standard orange/black-tipped. Ear color appears locked to the foxgirl+orange-hair concept; retry needs stronger decoupling (e.g. 'black wolf-like ears') or a hair+ear joint feature.",

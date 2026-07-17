@@ -8,13 +8,13 @@
   "generated_by": "mcp__taskweft__plan(atomic_feature_dataset_domain_v4: 45 explored-goals over render_batch)",
   "status": "ok",
   "rationale": "v4 keeps v3's atomic-feature design (each feature = exactly one attribute delta vs fixed baseline; 20 examples per feature, 9 features x 20 = 180 images) and replaces the style register after the user vetoed v3's output for the Trellis image-to-3D pipeline: 'anime eyes / mouth don't work very well with trellis. try more realistically shaded, but not full humanoid. we need realistic eyeballs.'",
-  "v4_style_selection": "Chosen by a 9-variant prompt-probe study (probes/style_v4-, 36 images, seeds 1-4 each). Findings: 'painterly' is ignored by z-image-turbo; 'realistic/photorealistic eyes' either has no effect in a 3D-render register or flips the whole image to photoreal cosplay (vetoed as 'full humanoid'); 'figurine' + eye emphasis collapses to chibi nendoroid (v1 veto); '3D VRChat avatar render' pulls a fox-muzzle face on ~half of seeds. Winner probe_i (4/4 human face, single tail, full body, adult proportions, dimensional 3D eyes): '3D anime avatar render, beautiful human woman face, soft semi-realistic shading, dimensional glossy eyes with detailed iris and catchlights, tall adult proportions'.",
+  "v4_style_selection": "Chosen by a 9-variant prompt-probe study (probes-style_v4-, 36 images, seeds 1-4 each). Findings: 'painterly' is ignored by z-image-turbo; 'realistic/photorealistic eyes' either has no effect in a 3D-render register or flips the whole image to photoreal cosplay (vetoed as 'full humanoid'); 'figurine' + eye emphasis collapses to chibi nendoroid (v1 veto); '3D VRChat avatar render' pulls a fox-muzzle face on ~half of seeds. Winner probe_i (4/4 human face, single tail, full body, adult proportions, dimensional 3D eyes): '3D anime avatar render, beautiful human woman face, soft semi-realistic shading, dimensional glossy eyes with detailed iris and catchlights, tall adult proportions'.",
   "single_tail_note": "cfg=1 (turbo) makes the negative prompt mathematically inert, which is why v2's negative-prompt tail fix never worked. The single-tail constraint is now positive-prompt ('exactly one single fluffy fox tail behind her'); in probes it held 24/28 vs frequent two-tail splays in v3.",
   "revision_history": {
     "v1": "chibi gremlin child look \u2014 rejected_v1_childlike/",
     "v2": "underwear drift + cutesy baseline \u2014 rejected_v2_underwear_drift/, rejected_v2_prompt_revision/",
     "v2.1": "composite features \u2014 rejected_v2_1_composite_features/",
-    "v3": "atomic features, flat 'anime style' register \u2014 vetoed for Trellis (flat anime eyes/mouth; style also drifted between flat anime and photoreal cosplay across seeds); 28 renders in rejected/v3_flat_anime_trellis-",
+    "v3": "atomic features, flat 'anime style' register \u2014 vetoed for Trellis (flat anime eyes/mouth; style also drifted between flat anime and photoreal cosplay across seeds); 28 renders in rejected-v3_flat_anime_trellis-",
     "v4": "current \u2014 atomic features + locked 3D-avatar semi-realistic style with dimensional eyes"
   },
   "prompts_v4": {
