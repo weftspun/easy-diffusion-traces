@@ -2,19 +2,27 @@
 
 Session traces from driving [weftspun/easy-diffusion-mcp](https://github.com/weftspun/easy-diffusion-mcp)
 with [taskweft](https://github.com/taskweft/taskweft)'s HTN planner
-(`mcp__taskweft__validate` / `plan`). Each dated directory holds:
+(`mcp__taskweft__validate` / `plan`).
 
-- `domain.jsonld` — the reusable `domain:Definition` (actions/methods), with
-  real ISO 8601 action durations
-- `problem.jsonld` — the `domain:Problem` instance (state + `todo_list`)
-- `plan.jsonld` — the planner's output (resolved plan, solution tree, status,
-  duration-relative `temporal` STN block). Where wall-clock evidence exists,
-  a `civil_time` block anchors `PT0S` to absolute timestamps — that block is
-  this repo's own annotation, **not** taskweft output (taskweft's schema has
-  no absolute-datetime field; `validate` rejects one). Each `civil_time` step
+## Layout
+
+Each dated session directory uses the same structure:
+
+- `docs/` — the planning trace: `domain*.jsonld` (reusable `domain:Definition`,
+  with real ISO 8601 action durations), `problem*.jsonld` (`domain:Problem`
+  state + `todo_list`), `plan*.jsonld` (planner output: resolved plan,
+  status, duration-relative `temporal` STN block), and `VETOES.md` where
+  human curation happened. Where wall-clock evidence exists, a `civil_time`
+  block anchors `PT0S` to absolute timestamps — that block is this repo's own
+  annotation, **not** taskweft output (taskweft's schema has no
+  absolute-datetime field; `validate` rejects one). Each `civil_time` step
   records its `source` (log/git/GitHub timestamp, or `"approximate"`).
-- generated images as `.webp`, grouped per feature, with human-vetoed waves
-  preserved under `rejected_*` directories and documented in `VETOES.md`
+- `dataset/` — accepted generated images (`.webp`), grouped per feature
+- `probes/` — prompt/style probe studies (exploration renders that informed
+  a plan revision, kept for the record)
+- `rejected/` — human-vetoed waves, preserved rather than deleted and
+  documented in `docs/VETOES.md`
+- `reference/` — user-provided reference images
 
 ## Trace sets
 
@@ -22,11 +30,11 @@ with [taskweft](https://github.com/taskweft/taskweft)'s HTN planner
 |---|---|
 | `2026-07-17-elixir-mcp-server/` | Building the Elixir MCP server itself (9-step session trace with civil-time spans) |
 | `2026-07-17-latent-space-foxgirl/` | Seed sweep from the default foxgirl prompt; first human vetoes (two tails, fox-head-as-tail) |
-| `2026-07-17-prompt-exploration-foxgirl/` | taskweft-branched prompt-space search; `plan.jsonld` records which branching mechanisms this taskweft build supports (TwMultiGoal backjumping) and which it rejects (pointer/eq guards, rebac+multigoal) |
-| `2026-07-17-concept-art-dataset-foxgirl/` | 6-feature x 20-image atomic-feature dataset (v1→v3 veto history), plus the v3.1 reference-image extension (`reference/`, `problem_v3_1.jsonld`, `plan_v3_1.jsonld`). Interrupted mid-sweep 2026-07-17; keepers so far under per-feature dirs |
+| `2026-07-17-prompt-exploration-foxgirl/` | taskweft-branched prompt-space search; `docs/plan.jsonld` records which branching mechanisms this taskweft build supports (TwMultiGoal backjumping) and which it rejects (pointer/eq guards, rebac+multigoal) |
+| `2026-07-17-concept-art-dataset-foxgirl/` | 9-feature x 20-image atomic-feature dataset. v1→v3 veto history in `docs/VETOES.md`; v4 (current) locks a Trellis-friendly 3D-avatar style chosen by the 9-variant probe study in `probes/style_v4/` (`docs/plan_v4.jsonld`) |
 
 ## Status
 
-The v3/v3.1 sweeps were paused mid-render on 2026-07-17 (user request);
-completed so far: `baseline` s01–s04 and the reference image. Remaining
-batches resume from the recorded plans.
+The v4 sweep (45 batches, 180 images) is rendering as of 2026-07-17; feature
+dirs move into `2026-07-17-concept-art-dataset-foxgirl/dataset/` once the
+sweep completes per-feature QA.
