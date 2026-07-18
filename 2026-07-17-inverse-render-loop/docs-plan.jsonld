@@ -1,0 +1,33 @@
+{
+ "@context": {
+  "vsekai": "https://v-sekai.org/",
+  "domain": "vsekai:planning/domain/"
+ },
+ "@type": "domain:PlanResult",
+ "name": "inverse_render_loop_v1_2026-07-17",
+ "generated_by": "mcp__taskweft__plan(inverse_render_loop_v1: 8 capability-guarded stage calls)",
+ "status": "ok",
+ "rationale": "Closed-loop inverse rendering for the weftspun pipeline. The current flow is open-loop (prompt -> z-image render -> TRELLIS 3D) with nothing verifying the recovered 3D against the intended structure. This loop borrows exactly one idea from Kyvo (github.com/AadSah/kyvo): a structured scene description token-aligned with the image, checked by render-cycle consistency. Everything else of Kyvo is trimmed (see docs-DESIGN.md). The scene description is the prompt_components JSON from plan_v5_tpose_round4; because we generate the images ourselves, ground-truth structure is known, and inverse rendering becomes analysis-by-synthesis with objective gates at every stage.",
+ "capabilities": {
+  "taskweft": ["plan"],
+  "easy_diffusion": ["render"],
+  "rf_detr": ["measure"],
+  "trellis2cpp": ["lift3d", "reproject"],
+  "curator": ["gate", "score", "accept"]
+ },
+ "plan": [
+  ["a_define_components", "taskweft"],
+  ["a_render_batch", "easy_diffusion"],
+  ["a_measure_structure", "rf_detr"],
+  ["a_gate_batch", "curator"],
+  ["a_lift_3d", "trellis2cpp"],
+  ["a_reproject_mesh", "trellis2cpp"],
+  ["a_cycle_score", "curator"],
+  ["a_accept_or_reseed", "curator"]
+ ],
+ "temporal": {
+  "consistent": true,
+  "origin": "PT0S",
+  "total": "PT26M"
+ }
+}

@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "rf-detr": {
+      "command": "C:\\Users\\ernes\\Desktop\\rf-detr-mcp\\.venv\\Scripts\\python.exe",
+      "args": ["C:\\Users\\ernes\\Desktop\\rf-detr-mcp\\server.py"]
+    }
+  }
+}

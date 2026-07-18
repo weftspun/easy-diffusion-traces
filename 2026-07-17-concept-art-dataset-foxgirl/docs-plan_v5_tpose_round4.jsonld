@@ -1,0 +1,46 @@
+{
+ "@context": {
+  "vsekai": "https://v-sekai.org/",
+  "domain": "vsekai:planning/domain/"
+ },
+ "@type": "domain:PlanResult",
+ "name": "tpose_separable_features_v5_round4_pose_first_mcp_2026-07-17",
+ "generated_by": "mcp__taskweft__plan(tpose_separable_features_v5_round4_pose_first_mcp: 4 explored-goals over render_via_mcp)",
+ "status": "ok",
+ "rationale": "Round 4 responds to round 3's 1/4 pose score: the loose wide-sleeved tunic overwhelms a trailing pose clause, so the pose clause moves to the FRONT of the prompt (z-image weights early tokens). Also tries 'black fox ears with white inner fur' after 'dark brown fox ears' rendered classic orange. Executed through the amended easy-diffusion MCP server (replaced this session: z-image heuristic auto-applies pig_flux VAE + qwen3 text encoder + cfg 1; all num_outputs images returned; byte-sniffed mime) — one generate_image call per seed. Passing seeds are re-rendered to files by the plan executor for the committed trace, deterministic per seed.",
+ "prompt_components": {
+  "pose": "character reference sheet of a woman standing in a strict T-pose, both arms fully outstretched straight out to the sides at shoulder height, palms facing down, fingers extended, legs straight and slightly apart, facing the camera directly, symmetrical pose",
+  "framing": "full body visible from the top of the head to the soles of the feet, empty margin around the whole figure",
+  "species": "kemonomimi foxgirl, adult woman, mature proportions",
+  "ears": "black fox ears with white inner fur",
+  "tail": "exactly one single fluffy dark brown fox tail behind her",
+  "hair": "short dark brown hair",
+  "eyes": "warm amber eyes",
+  "style": "3D anime avatar render, beautiful human woman face, soft semi-realistic shading, dimensional glossy eyes with detailed iris and catchlights, tall adult proportions",
+  "outfit": "oversized off-shoulder dark navy tunic draped over one shoulder, white camisole underneath, black cropped trousers, dark socks",
+  "background": "plain warm beige background"
+ },
+ "composition_order": ["pose", "framing", "species", "ears", "tail", "hair", "eyes", "style", "outfit", "background"],
+ "composition_note": "The prompt is the comma-join of prompt_components in composition_order. A separable feature delta = replacing exactly one component (e.g. outfit or hair) and re-rendering; pose/framing stay fixed at the front where z-image weights them most.",
+ "render_params": {
+  "width": 1024,
+  "height": 1024,
+  "steps": 8,
+  "sampler": "ddim",
+  "cfg": 1,
+  "model": "z-image-turbo-q8_0",
+  "seeds": [1, 2, 3, 4],
+  "api": "mcp generate_image via replaced easy-diffusion-mcp server (VAE/text-encoder from z-image heuristic)"
+ },
+ "plan": [
+  ["render_via_mcp", "refchar_tpose_posefirst_s1"],
+  ["render_via_mcp", "refchar_tpose_posefirst_s2"],
+  ["render_via_mcp", "refchar_tpose_posefirst_s3"],
+  ["render_via_mcp", "refchar_tpose_posefirst_s4"]
+ ],
+ "temporal": {
+  "consistent": true,
+  "origin": "PT0S",
+  "total": "PT1M20S"
+ }
+}

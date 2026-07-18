@@ -1,0 +1,35 @@
+{
+ "@context": {
+  "vsekai": "https://v-sekai.org/",
+  "domain": "vsekai:planning/domain/"
+ },
+ "@type": "domain:PlanResult",
+ "name": "tpose_separable_features_v5_round3_refchar_2026-07-17",
+ "generated_by": "mcp__taskweft__plan(tpose_separable_features_v5_round3_refchar: 1 explored-goal over render_batch)",
+ "status": "ok",
+ "rationale": "Round 3 rebases the identity on the user's actual reference (reference-ComfyUI_00446.webp, resent as Image #9): short dark brown hair, warm amber eyes, dark ears, oversized off-shoulder dark navy tunic over white camisole, black cropped trousers, dark socks, warm beige background. Rounds 1-2 had assumed the v4 orange-haired baseline. Changes vs round 2: (a) identity/outfit/background swapped to the reference character; (b) 'warm amber eyes' pinned positively after silver_hair-s02's grey-eye drift; (c) tail colored dark brown to match the ears — the reference hides the tail, but the 3D-modelling reference needs it visible; flagged for user veto. Pose clause and render params carry over unchanged. Still slow: 1 variant x 4 seeds.",
+ "pose_clause_v5": "standing in a strict T-pose, both arms fully outstretched straight out to the sides at shoulder height, palms facing down, fingers extended, legs straight and slightly apart, facing the camera directly, symmetrical pose, character reference sheet, full body visible from the top of the head to the soles of the feet, empty margin around the whole figure",
+ "prompts": {
+  "refchar_tpose": "kemonomimi foxgirl, adult woman, mature proportions, dark brown fox ears with pale inner fur, exactly one single fluffy dark brown fox tail behind her, short dark brown hair, warm amber eyes, 3D anime avatar render, beautiful human woman face, soft semi-realistic shading, dimensional glossy eyes with detailed iris and catchlights, tall adult proportions, oversized off-shoulder dark navy tunic draped over one shoulder, white camisole underneath, black cropped trousers, dark socks, plain warm beige background, standing in a strict T-pose, both arms fully outstretched straight out to the sides at shoulder height, palms facing down, fingers extended, legs straight and slightly apart, facing the camera directly, symmetrical pose, character reference sheet, full body visible from the top of the head to the soles of the feet, empty margin around the whole figure"
+ },
+ "render_params": {
+  "width": 1024,
+  "height": 1024,
+  "steps": 8,
+  "sampler": "ddim",
+  "cfg": 1,
+  "model": "z-image-turbo-q8_0",
+  "vae": "pig_flux_vae_fp32-f16",
+  "text_encoder": "qwen3_4b_f32-q8_0",
+  "seeds_per_batch": [1, 2, 3, 4],
+  "api": "direct POST :9000/render"
+ },
+ "plan": [
+  ["render_batch", "refchar_tpose_b1"]
+ ],
+ "temporal": {
+  "consistent": true,
+  "origin": "PT0S",
+  "total": "PT1M20S"
+ }
+}
