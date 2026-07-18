@@ -1,0 +1,41 @@
+{
+ "@context": {
+  "vsekai": "https://v-sekai.org/",
+  "domain": "vsekai:planning/domain/"
+ },
+ "@type": "domain:PlanResult",
+ "name": "tpose_separable_features_v5_round1_2026-07-17",
+ "generated_by": "mcp__taskweft__plan(tpose_separable_features_v5_round1: 3 explored-goals over render_batch)",
+ "status": "ok",
+ "rationale": "v5 goal (user, 2026-07-17): the separable-feature dataset images must show the ENTIRE body in a strict T-pose so each render is directly usable as 3D-modelling reference (Trellis image-to-3D). Workflow is GAN-style ping-pong: small generator batches, then a vision critique of every image, then replan. Round 1 starts slow: it renders only the fixed baseline character in 3 candidate T-pose phrasings (2 seeds each, 6 images) and no feature deltas. The phrasing that best survives the vision critique becomes the pose clause for the round-2+ feature sweep (baseline/hair/outfit deltas carried over from v4).",
+ "carryover_from_v4": "Style register, single-tail clause, adult-proportion clauses, and render params are inherited unchanged from plan_v4 (probe-validated): negative prompt is inert at cfg 1, so every pose/framing constraint below is phrased positively.",
+ "identity_base": "kemonomimi foxgirl, adult woman, mature proportions, fox ears, exactly one single fluffy fox tail behind her, long orange hair, 3D anime avatar render, beautiful human woman face, soft semi-realistic shading, dimensional glossy eyes with detailed iris and catchlights, tall adult proportions, white crop top, brown skirt, leather boots, plain background",
+ "prompts_v5_round1": {
+  "tpose_a_refsheet": "{identity_base}, standing in a strict T-pose, both arms fully outstretched straight out to the sides at shoulder height, palms facing down, fingers extended, legs straight and slightly apart, facing the camera directly, symmetrical pose, character reference sheet, full body visible from the top of the head to the soles of the feet, empty margin around the whole figure",
+  "tpose_b_modelsheet": "{identity_base}, 3D character model sheet for game modelling, front view, T-pose with arms extended horizontally like the letter T, palms down, standing straight upright, legs together, whole body in frame from head to toe, feet fully visible, centered composition",
+  "tpose_c_plainpose": "{identity_base}, standing in a T-pose, arms straight out to the sides, full body visible head to toe"
+ },
+ "render_params": {
+  "width": 1024,
+  "height": 1024,
+  "steps": 8,
+  "sampler": "ddim",
+  "cfg": 1,
+  "model": "z-image-turbo-q8_0",
+  "vae": "pig_flux_vae_fp32-f16",
+  "text_encoder": "qwen3_4b_f32-q8_0",
+  "seeds_per_batch": [1, 2],
+  "api": "direct POST :9000/render (MCP tools/call returns only the first of num_outputs)"
+ },
+ "critique_protocol": "Every render is vision-reviewed against: (1) strict T-pose with both arms horizontal, (2) entire body in frame incl. feet and ear tips, (3) facing camera, (4) exactly one tail, (5) v4 style register (semi-real shading, dimensional eyes), (6) outfit/hair matches the intended feature delta. Verdicts recorded in docs-plan_v5_tpose_round1_critique.md; failures drive the round-2 replan.",
+ "plan": [
+  ["render_batch", "tpose_a_refsheet_b1"],
+  ["render_batch", "tpose_b_modelsheet_b1"],
+  ["render_batch", "tpose_c_plainpose_b1"]
+ ],
+ "temporal": {
+  "consistent": true,
+  "origin": "PT0S",
+  "total": "PT1M30S"
+ }
+}

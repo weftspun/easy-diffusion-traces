@@ -1,0 +1,43 @@
+{
+ "@context": {
+  "vsekai": "https://v-sekai.org/",
+  "domain": "vsekai:planning/domain/"
+ },
+ "@type": "domain:PlanResult",
+ "name": "tpose_separable_features_v5_round2_2026-07-17",
+ "generated_by": "mcp__taskweft__plan(tpose_separable_features_v5_round2: 4 explored-goals over render_batch)",
+ "status": "ok",
+ "rationale": "Round 2 of the GAN-style loop. Round 1's vision critique (docs-plan_v5_tpose_round1_critique.md) selected phrasing A: the bare word 'T-pose' produces an A-pose at cfg 1; the arms must be spelled out explicitly. This round applies the winning pose clause to 4 atomic feature deltas (2 seeds each, 8 images) — one hair or outfit attribute changed vs the fixed baseline, everything else held constant, so each feature stays separable for the Trellis pipeline. Vision critique of these 8 gates the full 20-per-feature sweep.",
+ "pose_clause_v5": "standing in a strict T-pose, both arms fully outstretched straight out to the sides at shoulder height, palms facing down, fingers extended, legs straight and slightly apart, facing the camera directly, symmetrical pose, character reference sheet, full body visible from the top of the head to the soles of the feet, empty margin around the whole figure",
+ "identity_base": "kemonomimi foxgirl, adult woman, mature proportions, fox ears, exactly one single fluffy fox tail behind her",
+ "style_clause": "3D anime avatar render, beautiful human woman face, soft semi-realistic shading, dimensional glossy eyes with detailed iris and catchlights, tall adult proportions",
+ "prompts": {
+  "silver_hair": "kemonomimi foxgirl, adult woman, mature proportions, fox ears, exactly one single fluffy fox tail behind her, long silver hair, 3D anime avatar render, beautiful human woman face, soft semi-realistic shading, dimensional glossy eyes with detailed iris and catchlights, tall adult proportions, white crop top, brown skirt, leather boots, plain background, standing in a strict T-pose, both arms fully outstretched straight out to the sides at shoulder height, palms facing down, fingers extended, legs straight and slightly apart, facing the camera directly, symmetrical pose, character reference sheet, full body visible from the top of the head to the soles of the feet, empty margin around the whole figure",
+  "short_dark_hair": "kemonomimi foxgirl, adult woman, mature proportions, fox ears, exactly one single fluffy fox tail behind her, short dark brown bob hair, 3D anime avatar render, beautiful human woman face, soft semi-realistic shading, dimensional glossy eyes with detailed iris and catchlights, tall adult proportions, white crop top, brown skirt, leather boots, plain background, standing in a strict T-pose, both arms fully outstretched straight out to the sides at shoulder height, palms facing down, fingers extended, legs straight and slightly apart, facing the camera directly, symmetrical pose, character reference sheet, full body visible from the top of the head to the soles of the feet, empty margin around the whole figure",
+  "kimono_outfit": "kemonomimi foxgirl, adult woman, mature proportions, fox ears, exactly one single fluffy fox tail behind her, long orange hair, 3D anime avatar render, beautiful human woman face, soft semi-realistic shading, dimensional glossy eyes with detailed iris and catchlights, tall adult proportions, elegant kimono, plain background, standing in a strict T-pose, both arms fully outstretched straight out to the sides at shoulder height, palms facing down, fingers extended, legs straight and slightly apart, facing the camera directly, symmetrical pose, character reference sheet, full body visible from the top of the head to the soles of the feet, empty margin around the whole figure",
+  "hoodie_outfit": "kemonomimi foxgirl, adult woman, mature proportions, fox ears, exactly one single fluffy fox tail behind her, long orange hair, 3D anime avatar render, beautiful human woman face, soft semi-realistic shading, dimensional glossy eyes with detailed iris and catchlights, tall adult proportions, oversized hoodie and shorts, plain background, standing in a strict T-pose, both arms fully outstretched straight out to the sides at shoulder height, palms facing down, fingers extended, legs straight and slightly apart, facing the camera directly, symmetrical pose, character reference sheet, full body visible from the top of the head to the soles of the feet, empty margin around the whole figure"
+ },
+ "render_params": {
+  "width": 1024,
+  "height": 1024,
+  "steps": 8,
+  "sampler": "ddim",
+  "cfg": 1,
+  "model": "z-image-turbo-q8_0",
+  "vae": "pig_flux_vae_fp32-f16",
+  "text_encoder": "qwen3_4b_f32-q8_0",
+  "seeds_per_batch": [1, 2],
+  "api": "direct POST :9000/render"
+ },
+ "plan": [
+  ["render_batch", "silver_hair_b1"],
+  ["render_batch", "short_dark_hair_b1"],
+  ["render_batch", "kimono_outfit_b1"],
+  ["render_batch", "hoodie_outfit_b1"]
+ ],
+ "temporal": {
+  "consistent": true,
+  "origin": "PT0S",
+  "total": "PT2M40S"
+ }
+}
