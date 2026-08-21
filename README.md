@@ -26,11 +26,11 @@ Each dated session directory uses the same structure:
 
 ## Trace sets
 
-| Directory | What happened |
-|---|---|
-| `2026-07-17-elixir-mcp-server/` | Building the Elixir MCP server itself (9-step session trace with civil-time spans) |
-| `2026-07-17-latent-space-foxgirl/` | Seed sweep from the default foxgirl prompt; first human vetoes (two tails, fox-head-as-tail) |
-| `2026-07-17-prompt-exploration-foxgirl/` | taskweft-branched prompt-space search; `docs-plan.jsonld` records which branching mechanisms this taskweft build supports (TwMultiGoal backjumping) and which it rejects (pointer/eq guards, rebac+multigoal) |
+| Directory                                 | What happened                                                                                                                                                                                                                 |
+| ----------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `2026-07-17-elixir-mcp-server/`           | Building the Elixir MCP server itself (9-step session trace with civil-time spans)                                                                                                                                            |
+| `2026-07-17-latent-space-foxgirl/`        | Seed sweep from the default foxgirl prompt; first human vetoes (two tails, fox-head-as-tail)                                                                                                                                  |
+| `2026-07-17-prompt-exploration-foxgirl/`  | taskweft-branched prompt-space search; `docs-plan.jsonld` records which branching mechanisms this taskweft build supports (TwMultiGoal backjumping) and which it rejects (pointer/eq guards, rebac+multigoal)                 |
 | `2026-07-17-concept-art-dataset-foxgirl/` | 9-feature x 20-image atomic-feature dataset. v1→v3 veto history in `docs/VETOES.md`; v4 (current) locks a Trellis-friendly 3D-avatar style chosen by the 9-variant probe study in `probes-style_v4-*` (`docs/plan_v4.jsonld`) |
 
 ## Status

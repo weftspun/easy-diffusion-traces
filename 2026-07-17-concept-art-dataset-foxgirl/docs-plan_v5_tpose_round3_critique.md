@@ -4,12 +4,12 @@ Identity rebased on `reference-ComfyUI_00446.webp`: short dark brown hair,
 amber eyes, off-shoulder navy tunic over white camisole, black cropped
 trousers, dark socks, warm beige background. 1 variant x 4 seeds.
 
-| File | T-pose | Full body | Single tail | Character match | Verdict |
-|---|---|---|---|---|---|
-| refchar_tpose-s01 | FAIL — arms drooped ~30° | full | yes | good; ears orange not dark | FAIL |
-| refchar_tpose-s02 | borderline — arms ~20° below horizontal | full | yes | good | FAIL |
-| refchar_tpose-s03 | strict T, arms horizontal | full, socks visible | yes | good; ears orange not dark | **PASS** |
-| refchar_tpose-s04 | FAIL — arms drooped ~35° | full | yes | good | FAIL |
+| File              | T-pose                                  | Full body           | Single tail | Character match            | Verdict  |
+| ----------------- | --------------------------------------- | ------------------- | ----------- | -------------------------- | -------- |
+| refchar_tpose-s01 | FAIL — arms drooped ~30°                | full                | yes         | good; ears orange not dark | FAIL     |
+| refchar_tpose-s02 | borderline — arms ~20° below horizontal | full                | yes         | good                       | FAIL     |
+| refchar_tpose-s03 | strict T, arms horizontal               | full, socks visible | yes         | good; ears orange not dark | **PASS** |
+| refchar_tpose-s04 | FAIL — arms drooped ~35°                | full                | yes         | good                       | FAIL     |
 
 **Round-3 findings**
 

@@ -10,7 +10,7 @@ load-bearing.
 
 ## The idea taken from Kyvo — and what was trimmed away
 
-Kyvo aligns language, images, and a *structured scene JSON* in one token
+Kyvo aligns language, images, and a _structured scene JSON_ in one token
 space, and checks understanding by rendering the scene back. We keep exactly
 two things: **the structured scene as the canonical intermediate** and
 **render-cycle consistency as the correctness metric**. We drop Kyvo's
@@ -27,16 +27,16 @@ One feature delta = one component swap — separable by construction.
 
 ## The loop (see docs-plan.jsonld; capability-routed by taskweft)
 
-| # | Stage | Component | What happens |
-|---|---|---|---|
-| 1 | define components | taskweft | scene JSON + seeds planned, committed as trace |
-| 2 | render batch | easy-diffusion-mcp | z-image-turbo, T-pose clause fronted, cfg 1 |
-| 3 | measure structure | rf-detr-mcp | `analyze_pose` (COCO-17 angles) + `segment_image` (person mask) |
-| 4 | gate | curator | strict T (arms ≤ 15° from horizontal), head+feet in frame, exactly 1 person, mask solidity; fail → reseed, never prompt-surgery for stochastic defects |
-| 5 | lift 3D | trellis2cpp | image → GLB, 512³ fine (1024 cascade only for final accepted assets) |
-| 6 | reproject | trellis2cpp | server replay frames / turntable render of the GLB, front view first |
-| 7 | cycle score | curator (using rf-detr measurements) | rf-detr on the reprojection vs the source image: normalized keypoint L2, person-mask IoU, confidence drop |
-| 8 | accept / reseed | curator | pass → dataset + GLB committed; fail → veto recorded, reseed from stage 2 |
+| #   | Stage             | Component                            | What happens                                                                                                                                           |
+| --- | ----------------- | ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 1   | define components | taskweft                             | scene JSON + seeds planned, committed as trace                                                                                                         |
+| 2   | render batch      | easy-diffusion-mcp                   | z-image-turbo, T-pose clause fronted, cfg 1                                                                                                            |
+| 3   | measure structure | rf-detr-mcp                          | `analyze_pose` (COCO-17 angles) + `segment_image` (person mask)                                                                                        |
+| 4   | gate              | curator                              | strict T (arms ≤ 15° from horizontal), head+feet in frame, exactly 1 person, mask solidity; fail → reseed, never prompt-surgery for stochastic defects |
+| 5   | lift 3D           | trellis2cpp                          | image → GLB, 512³ fine (1024 cascade only for final accepted assets)                                                                                   |
+| 6   | reproject         | trellis2cpp                          | server replay frames / turntable render of the GLB, front view first                                                                                   |
+| 7   | cycle score       | curator (using rf-detr measurements) | rf-detr on the reprojection vs the source image: normalized keypoint L2, person-mask IoU, confidence drop                                              |
+| 8   | accept / reseed   | curator                              | pass → dataset + GLB committed; fail → veto recorded, reseed from stage 2                                                                              |
 
 Correctness comes from catching each failure at its cheapest stage: pose
 drift dies at stage 4 (~20 s/image), bad geometry dies at stage 7 (~2 min),

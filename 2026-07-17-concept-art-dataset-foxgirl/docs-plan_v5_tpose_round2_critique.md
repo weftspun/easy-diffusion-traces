@@ -2,16 +2,16 @@
 
 Winning pose clause from round 1 applied to 4 atomic feature deltas, 2 seeds each.
 
-| File | T-pose | Full body | Single tail | Feature delta | Verdict |
-|---|---|---|---|---|---|
-| silver_hair-s01 | strict T | full, feet visible | yes | silver hair, eyes stayed amber-brown | **PASS** |
-| silver_hair-s02 | strict T | full | FAIL — two-tail splay behind skirt | eye color drifted grey-blue with silver hair (register coupling) | FAIL |
-| short_dark_hair-s01 | strict T | full | yes | dark bob, rest of baseline held | **PASS** |
-| short_dark_hair-s02 | strict T | full | yes | ok | **PASS** |
-| kimono_outfit-s01 | T (slight forearm droop, acceptable) | full, sandals | yes | kimono; long sleeves partly obscure arm silhouette | **PASS** (note) |
-| kimono_outfit-s02 | near-T, slight droop | full, barefoot | FAIL — two-lobe tail splay | ok | FAIL |
-| hoodie_outfit-s01 | ~10° droop below horizontal | full, barefoot | yes | hoodie + shorts | **PASS** (borderline droop) |
-| hoodie_outfit-s02 | strict T | full | yes | ok | **PASS** |
+| File                | T-pose                               | Full body          | Single tail                        | Feature delta                                                    | Verdict                     |
+| ------------------- | ------------------------------------ | ------------------ | ---------------------------------- | ---------------------------------------------------------------- | --------------------------- |
+| silver_hair-s01     | strict T                             | full, feet visible | yes                                | silver hair, eyes stayed amber-brown                             | **PASS**                    |
+| silver_hair-s02     | strict T                             | full               | FAIL — two-tail splay behind skirt | eye color drifted grey-blue with silver hair (register coupling) | FAIL                        |
+| short_dark_hair-s01 | strict T                             | full               | yes                                | dark bob, rest of baseline held                                  | **PASS**                    |
+| short_dark_hair-s02 | strict T                             | full               | yes                                | ok                                                               | **PASS**                    |
+| kimono_outfit-s01   | T (slight forearm droop, acceptable) | full, sandals      | yes                                | kimono; long sleeves partly obscure arm silhouette               | **PASS** (note)             |
+| kimono_outfit-s02   | near-T, slight droop                 | full, barefoot     | FAIL — two-lobe tail splay         | ok                                                               | FAIL                        |
+| hoodie_outfit-s01   | ~10° droop below horizontal          | full, barefoot     | yes                                | hoodie + shorts                                                  | **PASS** (borderline droop) |
+| hoodie_outfit-s02   | strict T                             | full               | yes                                | ok                                                               | **PASS**                    |
 
 **Round-2 findings**
 
